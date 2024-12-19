@@ -14,21 +14,21 @@ npm install sentence-parse
 The parser can be used to split text into sentences. Here's a basic example:
 
 ```javascript
-import { parseSentences } from "./sentenceParse.js"
+import { parseSentences } from 'sentence-parse';
 
 // Parse from string
-const text = "Hello world! This is a test."
-const sentences = await parseSentences(text)
-console.log(sentences)
+const text = "Hello world! This is a test.";
+const sentences = await parseSentences(text);
+console.log(sentences);
 // Output: ["Hello world!", "This is a test."]
 
 // Parse from file
-import { readFile } from 'fs/promises'
-import { join } from 'path'
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
-const fileText = await readFile(join(process.cwd(), 'text-file.txt'), 'utf8')
-const fileSentences = await parseSentences(fileText)
-console.log(fileSentences)
+const fileText = await readFile(join(process.cwd(), 'text-file.txt'), 'utf8');
+const fileSentences = await parseSentences(fileText);
+console.log(fileSentences);
 ```
 
 ## Example
