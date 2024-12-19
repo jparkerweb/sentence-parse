@@ -1,7 +1,7 @@
 # 📄 Sentence Parser
 A simple utility to parse text into sentences.
 
-![sentence-parse](./docs/sentence-parse.jpg)
+![sentence-parse](https://raw.githubusercontent.com/jparkerweb/sentence-parse/refs/heads/main/docs/sentence-parse.jpg)
 
 ## Installation
 
