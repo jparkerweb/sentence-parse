@@ -1,4 +1,4 @@
-# 📄 Sentence Parser
+# 📄 Sentence Parse
 A simple utility to parse text into sentences.
 
 ![sentence-parse](https://raw.githubusercontent.com/jparkerweb/sentence-parse/refs/heads/main/docs/sentence-parse.jpg)
