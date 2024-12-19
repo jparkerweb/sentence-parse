@@ -1,2 +1,2 @@
-# sentence-parse
-📄 parse sentences from input text
+# 📄 sentence-parse
+parse sentences from input text
