@@ -1,7 +1,7 @@
 {
   "name": "sentence-parse",
   "description": "A simple utility to parse text into sentences",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "sentenceParse.js",
   "type": "module",
   "scripts": {
@@ -15,6 +15,14 @@
     "segment"
   ],
   "author": "Justin Parker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jparkerweb/sentence-parse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jparkerweb/sentence-parse/issues"
+  },
+  "homepage": "https://github.com/jparkerweb/sentence-parse#readme",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0",
