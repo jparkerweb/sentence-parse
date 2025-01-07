@@ -5,7 +5,8 @@
   "main": "sentenceParse.js",
   "type": "module",
   "scripts": {
-    "example": "node example/example.js"
+    "example": "node example/example.js",
+    "clean": "npx rimraf node_modules package-lock.json && npm install"
   },
   "keywords": [
     "sentence",
