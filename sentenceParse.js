@@ -6,14 +6,14 @@ import * as cheerio from 'cheerio';
 // -- Normalize Whitespace --
 // --------------------------
 function normalizeWhitespace(text) {
-	return text.replace(/\s+/g, " ").trim();
+    return text.replace(/\s+/g, " ").trim();
 }
 
 // ------------------
 // -- HTML to Text --
 // ------------------
 function htmlToText(html) {
-	return cheerio.load(html).text()
+    return cheerio.load(html).text()
 }
 
 
@@ -23,11 +23,11 @@ function htmlToText(html) {
 export async function parseSentences(text) {
     text = htmlToText(text)
     text = normalizeWhitespace(text)
-	const sentences = []
+    const sentences = []
 
-	for (const { segment } of splitBySentence(text)) {
-		sentences.push(segment.trim())
-	}
+    for (const { segment } of splitBySentence(text)) {
+        sentences.push(segment.trim())
+    }
 
-	return sentences
+    return sentences
 }
