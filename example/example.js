@@ -5,6 +5,11 @@ import { join } from 'path'
 // Read the text file
 const text = await readFile(join(process.cwd(), '/example-text.txt'), 'utf8')
 
-const sentences = await parseSentences(text)
+const sentences = await parseSentences(text, { 
+    observeMultipleLineBreaks: true,
+    removeStartLineSequences: ['~', '->'] 
+})
 
-console.log(sentences)
+for (const [index, sentence] of sentences.entries()) {
+    console.log(index + 1, sentence)
+}
