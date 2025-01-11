@@ -43,9 +43,7 @@ export async function parseSentences(text, {
     removeStartLineSequences = []
 } = {}) {
     text = htmlToText(text)
-    console.log(`\n--------\n\n text before normalize: \n${text}\n--------\n`)
     text = normalizeText(text, { observeMultipleLineBreaks, removeStartLineSequences })
-    console.log(`\n--------\n\n text after normalize: \n${text}\n--------\n`)
     const sentences = []
 
     for (const { segment } of splitBySentence(text)) {
