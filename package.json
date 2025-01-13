@@ -1,7 +1,7 @@
 {
   "name": "sentence-parse",
   "description": "A simple utility to parse text into sentences",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "sentenceParse.js",
   "type": "module",
   "scripts": {
