@@ -35,6 +35,9 @@ console.log(fileSentences);
 
 - **observeMultipleLineBreaks**: Treats two or more consecutive line breaks as separate sentences. Default is `false`.
 - **removeStartLineSequences**: Removes specified sequences at the start of each line. Default is an empty array `[]`.
+- **preserveHTMLBreaks**: Preserves HTML `<br>` and `<p>` tags as line breaks in the text. Default is `true`.
+- **preserveListItems**: Preserves list items by adding a prefix to each `<li>` element. Default is `true`.
+- **listItemPrefix**: Specifies the prefix to use for list items when `preserveListItems` is `true`. Default is `'- '`.
 
 ## Examples
 
@@ -56,6 +59,28 @@ const text = "> Hello world!\n> This is a test.";
 const sentences = await parseSentences(text, { removeStartLineSequences: ['>'] });
 console.log(sentences);
 // Output: ["Hello world!", "This is a test."]
+```
+
+### Using HTML Options
+```javascript
+import { parseSentences } from 'sentence-parse';
+
+const htmlText = `
+<p>Hello world!<br>This is a test.</p>
+<ul>
+  <li>First item</li>
+  <li>Second item</li>
+</ul>
+`;
+
+const sentences = await parseSentences(htmlText, {
+  preserveHTMLBreaks: true,
+  preserveListItems: true,
+  listItemPrefix: '* '
+});
+
+console.log(sentences);
+// Output: ["Hello world!", "This is a test.", "* First item", "* Second item"]
 ```
 
 ## Example

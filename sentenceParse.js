@@ -30,8 +30,38 @@ function normalizeText(text, { observeMultipleLineBreaks = false, removeStartLin
 // ------------------
 // -- HTML to Text --
 // ------------------
-function htmlToText(html) {
-    return cheerio.load(html).text()
+function htmlToText(html, {
+    listItemPrefix = '- ',
+    preserveListItems = true,
+    preserveHTMLBreaks = true
+} = {}) {
+    // Load the HTML into cheerio
+    const $ = cheerio.load(html);
+
+    if (preserveHTMLBreaks) {
+        // Replace each <br> with a newline character
+        $('br').replaceWith('\n');
+        // Add newline characters before and after <p> to separate paragraphs
+        $('p').before('\n\n').after('\n\n');
+    }
+
+    if (preserveListItems) {
+        // Add newline characters before and after <ul> and <ol> to separate lists
+        $('ul, ol').before('\n\n').after('\n\n');
+        // Replace <li> with '- ' followed by the list item text
+        $('li').prepend(`\n\n${listItemPrefix}`);
+    }
+
+    
+    // Extract the text content
+    let text = $('div').text();
+    
+    // If no text is found in <div>, extract from the entire body
+    if (!text) {
+        text = $.text();
+    }
+    
+    return text;
 }
 
 
@@ -40,9 +70,12 @@ function htmlToText(html) {
 // ---------------------
 export async function parseSentences(text, { 
     observeMultipleLineBreaks = false,
-    removeStartLineSequences = []
+    removeStartLineSequences = [],
+    preserveHTMLBreaks = true,
+    preserveListItems = true,
+    listItemPrefix = '- '
 } = {}) {
-    text = htmlToText(text)
+    text = htmlToText(text, { preserveHTMLBreaks, preserveListItems, listItemPrefix })
     text = normalizeText(text, { observeMultipleLineBreaks, removeStartLineSequences })
     const sentences = []
 
