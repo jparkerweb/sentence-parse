@@ -3,11 +3,14 @@ import { readFile } from 'fs/promises'
 import { join } from 'path'
 
 // Read the text file
-const text = await readFile(join(process.cwd(), '/example-text2.txt'), 'utf8')
+const text = await readFile(join(process.cwd(), '/example-text.txt'), 'utf8')
 
 const sentences = await parseSentences(text, { 
     observeMultipleLineBreaks: true,
-    removeStartLineSequences: ['~', '->'] 
+    removeStartLineSequences: ['>'],
+    preserveListItems: true,
+    listItemPrefix: '- ',
+    preserveHTMLBreaks: true,
 })
 
 for (const [index, sentence] of sentences.entries()) {
