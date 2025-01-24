@@ -73,13 +73,15 @@ export async function parseSentences(text, {
     removeStartLineSequences = [],
     preserveHTMLBreaks = true,
     preserveListItems = true,
-    listItemPrefix = '- '
+    listItemPrefix = '- ',
+    excludeNonLetterSentences = false
 } = {}) {
     text = htmlToText(text, { preserveHTMLBreaks, preserveListItems, listItemPrefix })
     text = normalizeText(text, { observeMultipleLineBreaks, removeStartLineSequences })
     const sentences = []
 
     for (const { segment } of splitBySentence(text)) {
+        if (excludeNonLetterSentences && segment.match(/^\P{L}*$/u)) continue // skip segments that contain NO letters
         sentences.push(segment.trim())
     }
 

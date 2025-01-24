@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2025-01-24
+### ✨ Added
+- Added `excludeNonLetterSentences` option ⇢ default: `false`
+    > if enabled, segments that contain no letters (only numbers, symbols, etc) are excluded
+
 ## [1.2.0] - 2025-01-13
 ### ✨ Added
 - Added `preserveHTMLBreaks` option ⇢ default: `true`

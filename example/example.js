@@ -11,6 +11,7 @@ const sentences = await parseSentences(text, {
     preserveListItems: true,
     listItemPrefix: '- ',
     preserveHTMLBreaks: true,
+    excludeNonLetterSentences: true
 })
 
 for (const [index, sentence] of sentences.entries()) {

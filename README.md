@@ -38,6 +38,7 @@ console.log(fileSentences);
 - **preserveHTMLBreaks**: Preserves HTML `<br>` and `<p>` tags as line breaks in the text. Default is `true`.
 - **preserveListItems**: Preserves list items by adding a prefix to each `<li>` element. Default is `true`.
 - **listItemPrefix**: Specifies the prefix to use for list items when `preserveListItems` is `true`. Default is `'- '`.
+- **excludeNonLetterSentences**: Excludes segments that contain no letters (only numbers, symbols, etc). Default is `false`.
 
 ## Examples
 
@@ -81,6 +82,16 @@ const sentences = await parseSentences(htmlText, {
 
 console.log(sentences);
 // Output: ["Hello world!", "This is a test.", "* First item", "* Second item"]
+```
+
+### Using excludeNonLetterSentences
+```javascript
+import { parseSentences } from 'sentence-parse';
+
+const text = "Hello world! $4,000,000. This is a test.";
+const sentences = await parseSentences(text, { excludeNonLetterSentences: true });
+console.log(sentences);
+// Output: ["Hello world!", "This is a test."]
 ```
 
 ## Example
