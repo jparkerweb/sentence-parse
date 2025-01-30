@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2025-01-30
+### 📦 Updated
+- Updated `string-segmenter` dependency to `1.3.0` (don't crash on null segments)
+
 ## [1.3.0] - 2025-01-24
 ### ✨ Added
 - Added `excludeNonLetterSentences` option ⇢ default: `false`
